@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Track Team Selector</title>
+  </head>
+  <body>
+    <h1 style="width: 100%; text-align: center;">Athletes</h3>
+    <table id="lineup" style="width: 100%;">
+      <tr>
+        <th>Big Mas</th>
+        <th>Andre</th> 
+        <th>Firk</th>
+      </tr>
+      <tr>
+        <td>67</td>
+        <td>150</td>
+        <td>65</td>
+      </tr>
+    </table>
+    <br>
+    <h1 style="width: 100%; text-align: center;">Teams</h3>
+    <button style="margin-left: 40%; width: 20%; text-size: 1vw;" onclick="generateTeams()">Generate Teams</button>
+    <br>
+    <br>
+    <div id="table" style="width: 50%; margin-left: 25%;">
+    <table id="teams">
+      <tr>
+        <th>Team Name</th>
+        <th>Members</th> 
+        <th>Estimated Time</th>
+      </tr>
+      <tr>
+        <td>The Best</td>
+        <td>Evan</td>
+        <td>51</td>
+      </tr>
+      <tr>
+        <td>The Second Best</td>
+        <td>Evan Again</td>
+        <td>52</td>
+      </tr>
+      <tr>
+        <td>The Worst</td>
+        <td>Big Mas</td>
+        <td>80</td>
+      </tr>
+    </table>
+    </div>
+    <script>
+      var roster = [{name:"Alex K", time:"54"}, {name:"Alyssa P", time:"70"}, {name:"Crosby W", time:"70"}, {name:"Eli H", time:"58"}, {name:"Elizabeth S", time:"90"}, {name:"Emily R", time:"72"}, {name:"Evan M", time:"66"}, {name:"Ricky 2", time:"60"}, {name:"Joe G", time:"58"}, {name:"Jordan E", time:"63"}, {name:"Kerrigan B", time:"65"}, {name:"Liam A", time:"85"}, {name:"Lina D", time:"100"}, {name:"Jax C", time:"68"}, {name:"Logan B", time:"57"}, {name:"Michael S", time:"57"}, {name:"Ricky S", time:"60"}, {name:"Thomas A", time:"90"}, {name:"Will K", time:"60"}, {name:"Zoey C", time:"70"}];
+
+      var htmlRoster = "<tr>";
+          var hasRick = 0;
+          var hasRick2 = 0;
+          var hasBothRicks = false;
+
+
+      for (i=0; i < roster.length; i++) {
+        htmlRoster += "<td style='font-size: 1.1vw;'>"
+        htmlRoster += roster[i].name;
+        htmlRoster += "</td>"
+      }
+
+      htmlRoster += "</tr>"
+      htmlRoster += "<tr>"
+
+      for (i=0; i < roster.length; i++) {
+        htmlRoster += "<td style='font-size: 1.1vw;'>"
+        htmlRoster += roster[i].time;
+        htmlRoster += "</td>"
+      }
+
+      document.getElementById("lineup").innerHTML = htmlRoster;
+
+      var headCount = 0;
+      var cumTime = 0;
+
+      for (i=0; i<roster.length; i++) {
+        headCount ++;
+        cumTime += parseInt(roster[i].time);
+      }
+
+      var avgTime = (cumTime / headCount) * 4;
+
+      function generateTeams() {
+
+        console.log("head count " + headCount);
+        console.log("cumulative time " + cumTime);
+        console.log("average time " + avgTime);
+
+        var teamhtml = "<tr><th>Team Name</th><th>Members</th><th>Estimated Time</th></tr>";
+
+        var teams = makeTeams(roster);
+
+        while (teams.length < 1) {
+          teams = makeTeams(roster);
+        }
+
+        var teamNames = ["Uptown", "Downtown", "Westside", "Eastside", "Northside", "Southside", "Lefttown", "Righttown"];
+
+        for (x=0; x < teams.length; x++) {
+          //console.log("team: " + teams[x]);
+          teamhtml += "<tr>";
+          teamhtml += "<td>";
+          teamhtml += teamNames[x];
+          teamhtml += "</td>"
+          teamhtml += "<td>";
+          teamhtml += teams[x][0].name;
+          teamhtml += ", ";
+          teamhtml += teams[x][1].name;
+          teamhtml += ", ";
+          teamhtml += teams[x][2].name;
+          teamhtml += ", ";
+          teamhtml += teams[x][3].name;
+          teamhtml += "<td>";
+          var teamTimeSec = (parseInt(teams[x][0].time) + parseInt(teams[x][1].time) + parseInt(teams[x][2].time) + parseInt(teams[x][3].time))
+          var min = parseInt(teamTimeSec/60);
+          var sec = Math.floor( ( teamTimeSec - (min * 60) ));
+          if (sec < 10) { sec = "0" + sec;}
+          var playsAt = min + ":" + sec;
+          teamhtml += playsAt;
+          teamhtml += " (";
+          teamhtml += teamTimeSec;
+          teamhtml += ")";
+          teamhtml += "</td>";
+          teamhtml += "</tr>";
+        }
+
+        document.getElementById("teams").innerHTML = teamhtml;
+      }
+
+      function makeTeams(athletes) {
+        var runners = athletes;
+        var teamsFinal = [];
+
+        hasBothRicks = false;
+
+        for (n=0; n < runners.length; n++) {
+          //console.log(runners[n].name + " ");
+        }
+
+        shuffle(runners);
+
+        //console.log("shuffled");
+
+        for (n=0; n < runners.length; n++) {
+          //console.log(runners[n].name + " ");
+        }
+
+        for (n=0; n < runners.length; n=n+4) {
+	  hasRick = 0;
+	  hasRick2 = 0;
+
+          var teamTemp = [runners[n], runners[n+1], runners[n+2], runners[n+3]];
+	  
+          teamTemp.sort((a,b)=>b.time-a.time);
+
+          teamsFinal.push(teamTemp);
+
+	  hasRick = 0;
+	  hasRick2 = 0;
+
+	  for (var i=0; i < teamTemp.length; i++) {
+
+	      if (teamTemp[i].name == "Ricky S") {
+		hasRick = 1;
+		//console.log("has rick 1");
+		}
+	      if (teamTemp[i].name == "Ricky 2") {
+		hasRick2 = 1;
+		//console.log("has rick 2");
+		}
+	  }	
+
+         if (hasRick == 1 && hasRick2 == 1) hasBothRicks = true;
+
+	  hasRick = 0;
+	  hasRick2 = 0;
+
+	//console.log("has both ricks: " + hasBothRicks);
+
+        }
+
+        for (v=0; v < teamsFinal.length; v++) {
+          //console.log("team " + v);
+          var teamMems = "";
+          for (b=0; b < teamsFinal[v].length; b++) {
+            teamMems += teamsFinal[v][b].name + " ";
+          }
+          //console.log(teamMems);
+        }
+
+        for (m=0; m < teamsFinal.length; m++) {
+          var teamTime = 0;
+
+          for (c=0; c < teamsFinal[m].length; c++) {
+            teamTime += parseInt(teamsFinal[m][c].time);
+          }
+          
+          //console.log("team time " + teamTime);
+          //console.log("avg time " + avgTime);
+          //console.log("in final if: has both: " + hasBothRicks);
+
+          if (teamTime - avgTime > 1.5 || hasBothRicks == false) {
+       //   if (hasBothRicks == false) {
+            //return makeTeams(athletes);
+            //console.log("they're shit");
+            var shitArr = [];
+            return shitArr;
+          }
+        }
+       // console.log("all gucc");
+        return teamsFinal;
+      }
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+    </script>
+    <style>
+	table {
+	    font-size: 1.5vw;
+	}
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(odd){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4c4c4c;
+  color: white;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: #4c4c4c; 
+  border: 2px solid #4c4c4c;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #4c4c4c;
+  color: white;
+}
+    </style>
+  </body>
+</html>

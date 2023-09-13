@@ -1,0 +1,205 @@
+
+      html, body {
+        background-color: white;
+        height: 100%;
+        margin: 0;
+        overflow: hidden; 
+        font-family: PixelText;
+        cursor: url('cursor.png'), auto;
+      }
+
+      .wrapper {
+        min-height: 100%;
+      }
+      
+      #applicationWindow {
+          background-image: url("window.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          margin-left: 25%;
+          width: 50%;
+          overflow: hidden;
+          z-index: 1;
+          position: absolute;
+          display: block;
+          min-height: 200px;
+          max-height: 570px;
+          margin-top: 0%;
+      }
+      
+      #slideshow {
+          background-image: url(slideshow.png);
+          margin-top: 12%;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          margin-left: 70%;
+          width: 22%;
+          overflow: hidden;
+          box-shadow: rgba(0, 0, 0, 0.5) 2px 5px;
+          z-index: -1;
+          min-width: 250px;
+          position: relative;
+          display: block;
+      }
+      
+      #slideshow2 {
+          background-image: url(slideshow2.png);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          margin-left: 7%;
+          width: 22%;
+          overflow: hidden;
+          box-shadow: rgba(0, 0, 0, 0.5) 2px 5px;
+          z-index: -1;
+          min-width: 250px;
+          position: relative;
+          margin-bottom: -21%;
+          display: block;
+      }
+
+      body { 
+        background: black url(static.gif) no-repeat fixed center; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: 100% 100%;
+        position: relative;
+      }
+
+      #footer {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+      }
+
+      .linkText:hover {
+        color: white;
+        cursor: pointer;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      #link1:hover #toad1 {
+        color: #FF555E;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      #link2:hover #toad2 {
+        color: #FF8650;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      #link3:hover #toad3 {
+        color: #FFE981;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      #link4:hover #toad4 {
+        color: #9B6EF3;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      #link5:hover #toad5 {
+        color: #83B2FF;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      #link6:hover #toad6 {
+        color: #8BF18B;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      .clickable {
+        cursor: url('cursor_click.png'), pointer;
+      }
+
+      .mySlides {
+        image-rendering: pixelated;
+        height: 100%;
+        opacity: 0.65;
+      }
+
+      .mySlidesB {
+        image-rendering: pixelated;
+        height: 100%;
+        opacity: 0.65;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .column {
+        float: left;
+        width: 50%;
+        padding: 5px;
+      }
+
+      .column3rd {
+        float: left;
+        width: 33.33333%;
+        padding: 5px;
+      }
+      
+    .columnQuater {
+         float: left;
+         width: 25%;
+         padding: 5px;
+    }
+    
+    .column3Quater {
+         float: left;
+         width: 75%;
+         padding: 5px;
+    }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 2s;
+        animation-name: fade;
+        animation-duration: 2s;
+      }
+
+      @-webkit-keyframes fade {
+        from {opacity: .5} 
+        to {opacity: 0.65}
+      }
+
+      @keyframes fade {
+        from {opacity: .5} 
+        to {opacity: 0.65}
+      }
+
+      #slidesContainer {
+        margin-top: 12.8%;
+        margin-bottom: 1%;
+        margin-left: 1.6%;
+        margin-right: 1.6%;
+      }
+
+      #slidesContainer2 {
+        margin-top: 12.8%;
+        margin-bottom: 1%;
+        margin-left: 1.6%;
+        margin-right: 1.6%;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+      @font-face { font-family: PixelText; src: url('FFFFORWA.TTF'); }

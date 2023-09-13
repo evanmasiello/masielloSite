@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html id="html" lang="en">
+   <head>
+      <title>Education - Evan Masiello</title>
+      <link rel="icon" href="EMlogoTab.png">
+      <link rel="stylesheet" href="style.css">
+      <script src="script.js"></script>
+   </head>
+   <body>
+      <div class="wrapper" style="background-image: url('frameOnly.png'); background-repeat: no-repeat; background-size: 100% 100%; z-index: -100;" width="100%" height="100%">
+      <div class="row">
+         <div class="column">
+            <img class="clickable" src="backArrow.png" style="width: 7%; margin-left: 1%; margin-top: 2%; min-height: 40px;min-width: 30px;" onclick="back()">
+         </div>
+         <div class="column">
+            <img id="polaroid" class="clickable" src="polaroid.png" style="width: 25%;margin-left: 70%;margin-top: 1%;min-height: 100px;min-width: 100px;margin-bottom: -17%;" onclick="displayNumber()">
+         </div>
+      </div>
+      <br>
+      <br>
+      <div id="contentWindows">
+         <div id="slideshow2" class="wrapper">
+            <div id="slidesContainer2" style="overflow: hidden;">
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo1.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo2.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo3.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: block;">
+                  <img src="inspo4.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo5.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo5.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo6.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo7.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo8.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo9.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo10.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo11.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo12.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo13.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo14.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo15.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: block;">
+                  <img src="inspo16.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo17.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo18.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo19.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo20.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo21.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo22.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo23.png" style="width:100%">
+               </div>
+               <div class="mySlidesB fade" style="display: none;">
+                  <img src="inspo24.png" style="width:100%">
+               </div>
+               <script>
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+                  
+                  var slideIndexB = 0;
+                  
+                  showSlidesB();
+                  
+                  function randomIntFromInterval(min, max) { // min and max included 
+                    return Math.floor(Math.random() * (max - min + 1) + min)
+                  }
+                  
+                  function showSlidesB() {
+                    var iB;
+                    var slidesB = document.getElementsByClassName("mySlidesB");
+                  
+                    slidesB = Array.prototype.slice.call(slidesB);
+                  
+                    slidesB = shuffle(slidesB);
+                  
+                    //console.log(getCookie("slideBList"));
+                    //console.log(getCookie("slideBcurrent"));
+                  
+                    //if (getCookie("slideBList") != "") slidesB = getCookie("slideBList");
+                    //if (getCookie("slideBcurrent") != "") slideIndexB = getCookie("slideBcurrent");
+                  
+                    console.log("slidesB length: " + slidesB.length);
+
+                    for (iB = 0; iB < slidesB.length; iB++) {
+                      slidesB[iB].style.display = "none";  
+                    }
+
+                    slideIndexB++;
+                    if (slideIndexB > slidesB.length) {slideIndexB = 1}    
+                    slidesB[slideIndexB-1].style.display = "block";  
+                    setTimeout(showSlidesB, (randomIntFromInterval(4, 15)*1000)); // Change image every 2 seconds
+                  
+                    //setCookie("slideBList", slidesB, 1);
+                    //setCookie("slideBcurrent", slideIndexB, 1);
+                  }
+               </script>
+            </div>
+         </div>
+         <div id="applicationWindow" class="wrapper">
+            <div id="content" style="display: none; height: 100%;">
+               <h1 id="pagesTitle" style="font-family: PixelText; text-align: center; font-size: 1.5vw; padding-top: 7%; color: #FF555E; text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; margin-bottom: 0%;">education</h1>
+               <div class="row" style="overflow-y:auto; max-height: 300px; width: 92.5%; display: block; margin-left: 5%;">
+<div id="csaea">
+		  <div id="csGraphic" style="width: 10%; float: left; padding-right: 5px;"><img src="csaea_logo.png" style="width: 100%;"></div><div style="width: 86%;float: left;"><h3 style="margin: 0px 0px 0px 0;font-size: 1.4vw;">Computer Science &amp; Applied Engineering Academy</h3><h5 style="margin: 0.3em 0 0 0;font-size: 0.9vw;">Voorhees High School, Glenn Gardener, NJ</h5><h6 style="margin: 0.3em 0 0.3em 0;font-size: 0.7vw;">July 2020 - June 2021</h6></div>
+<p style="font-size: 0.9vw;margin-left: 3%;text-indent: 0.5em;line-height: 1.8em;">The Hunterdon County Vocational School District's Computer Science and Applied Engineering Academy is a full-time 4 year academy hosted at Voorhees High School.</p><p style="font-size: 0.9vw;margin-left: 3%;text-indent: 0.5em;line-height: 1.8em; margin-top: -5%;"><br>93.64 current GPA, 5 on AP Computer Science Principles exam, 4 on AP Computer Science A exam, 5 on both AP Micro/Macro Economics exams, 1500 on SAT.</p>
+		</div>
+		<div id="lbtb">
+		  <div id="columbiaGraphic" style="width: 10%; float: left; padding: 5px;"><img src="columbiaLogo.png" style="width: 100%;"></div><div style="width: 86%; float: left;"><h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Columbia University</h3><h5 style="margin: 0.5em 0 0 0; font-size: 0.9vw;">Class: Blockchain, Cryptocurrency, AI, and Beyond</h5><h6 style="margin: 0.3em 0 0.3em 0; font-size: 0.7vw;">June 2021 - July 2021</h6></div>
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">The Columbia University Summer Immersion is a 3 week program during which students engage in high-level coursework in collaboration with a group of internation peers.</p>
+               </div>
+		<div id="lbtb">
+		  <div id="columbiaGraphic" style="width: 10%; float: left; padding: 5px;"><img src="fdu.png" style="width: 100%;"></div><div style="width: 86%; float: left;"><h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Fairleigh Dickinson University</h3><h5 style="margin: 0.5em 0 0 0; font-size: 0.9vw;">Dual Enrollment</h5><h6 style="margin: 0.3em 0 0.3em 0; font-size: 0.7vw;">August 2019 - June 2020</h6></div>
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">Introduction to Artificial Intelligence & Robotics (3 Credits)</p>
+               </div>
+		<div id="lbtb">
+		  <div id="columbiaGraphic" style="width: 10%; float: left; padding: 5px;"><img src="rvcc.png" style="width: 100%;"></div><div style="width: 86%; float: left;"><h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Raritan Valley Community College</h3><h5 style="margin: 0.5em 0 0 0; font-size: 0.9vw;">Dual Enrollment</h5><h6 style="margin: 0.3em 0 0.3em 0; font-size: 0.7vw;">Fall 2021 - June 2022</h6></div>
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">English Composition (3 credits) & Intro to Psychology (3 Credits)</p>
+               </div>
+            </div>
+               <br>
+            </div>
+         </div>
+         <div id="slideshow" class="wrapper">
+            <div id="slidesContainer" style="overflow: hidden;">
+               <div class="mySlides fade">
+                  <img src="slide1.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide2.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide3.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide4.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide5.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide6.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide7.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide8.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide9.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide10.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide11.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide12.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide13.jpeg" style="width:100%">
+               </div>
+               <div class="mySlides fade">
+                  <img src="slide14.jpeg" style="width:100%">
+               </div>
+            </div>
+            <script>
+               var slideIndex = 0;
+               showSlides();
+               
+               function showSlides() {
+                 var i;
+                 var slides = document.getElementsByClassName("mySlides");
+               
+                 slides = Array.prototype.slice.call(slides);
+               
+                 slides = shuffle(slides);
+               
+                 //console.log(getCookie("slideList"));
+                 //console.log(getCookie("slidecurrent"));
+               
+                 //if (getCookie("slideList") != "") slides = getCookie("slideList");
+                 //if (getCookie("slidecurrent") != "") slideIndex = getCookie("slidecurrent");
+               
+                 slides = Array.prototype.slice.call(slides);
+               
+                 console.log("slides length: " + slides.length);
+               
+                 for (i = 0; i < slides.length; i++) {
+                   slides[i].style.display = "none";  
+                 }
+                 slideIndex++;
+                 if (slideIndex > slides.length) {slideIndex = 1;}
+                 slides[slideIndex-1].style.display = "block";  
+                 setTimeout(showSlides, (randomIntFromInterval(4, 15)*1000)); // Change image every 2 seconds
+               
+                 //setCookie("slideList", slides, 1);
+                 //setCookie("slidecurrent", slideIndex, 1);
+               }
+            </script>
+         </div>
+      </div>
+      <div id="footer">
+         <div class="row">
+            <div class="column">
+               <a href="index.html"><img class="clickable" src="homeButton.png" style="width: 9%;margin-left: 1%;margin-bottom: 1%;min-height: 40px;min-width: 30px;"></a>
+            </div>
+            <div class="column">
+               <img src="EMlogo.png" style="width: 9%;min-height: 40px;min-width: 30px;margin-left: 90%;margin-bottom: 1%;">
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

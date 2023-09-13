@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html id="html" lang="en">
+<head><meta charset="utf-8">
+	<title>Experience - Evan Masiello</title>
+	<link href="EMlogoTab.png" rel="icon" />
+    <link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+<div class="wrapper" height="100%" style="background-image: url('frameOnly.png'); background-repeat: no-repeat; background-size: 100% 100%; z-index: -100;" width="100%">
+<div class="row">
+<div class="column"><img class="clickable" onclick="back()" src="backArrow.png" style="width: 7%; margin-left: 1%; margin-top: 2%; min-height: 40px;min-width: 30px;" /></div>
+
+<div class="column"><img class="clickable" id="polaroid" onclick="displayNumber()" src="polaroid.png" style="width: 25%;margin-left: 70%;margin-top: 1%;min-height: 100px;min-width: 100px;margin-bottom: -17%;" /></div>
+</div>
+&nbsp;
+
+<div id="contentWindows">
+<div class="wrapper" id="slideshow2">
+<div id="slidesContainer2" style="overflow: hidden;">
+<div class="mySlidesB fade" style="display: none;"><img src="inspo1.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo2.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo3.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: block;"><img src="inspo4.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo5.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo5.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo6.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo7.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo8.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo9.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo10.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo11.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo12.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo13.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo14.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo15.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: block;"><img src="inspo16.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo17.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo18.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo19.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo20.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo21.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo22.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo23.png" style="width:100%" /></div>
+
+<div class="mySlidesB fade" style="display: none;"><img src="inspo24.png" style="width:100%" /></div>
+<script>
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+                  
+                  var slideIndexB = 0;
+                  
+                  showSlidesB();
+                  
+                  function randomIntFromInterval(min, max) { // min and max included 
+                    return Math.floor(Math.random() * (max - min + 1) + min)
+                  }
+                  
+                  function showSlidesB() {
+                    var iB;
+                    var slidesB = document.getElementsByClassName("mySlidesB");
+                  
+                    slidesB = Array.prototype.slice.call(slidesB);
+                  
+                    slidesB = shuffle(slidesB);
+                  
+                    //console.log(getCookie("slideBList"));
+                    //console.log(getCookie("slideBcurrent"));
+                  
+                    //if (getCookie("slideBList") != "") slidesB = getCookie("slideBList");
+                    //if (getCookie("slideBcurrent") != "") slideIndexB = getCookie("slideBcurrent");
+                  
+                    console.log("slidesB length: " + slidesB.length);
+
+                    for (iB = 0; iB < slidesB.length; iB++) {
+                      slidesB[iB].style.display = "none";  
+                    }
+
+                    slideIndexB++;
+                    if (slideIndexB > slidesB.length) {slideIndexB = 1}    
+                    slidesB[slideIndexB-1].style.display = "block";  
+                    setTimeout(showSlidesB, (randomIntFromInterval(4, 15)*1000)); // Change image every 2 seconds
+                  
+                    //setCookie("slideBList", slidesB, 1);
+                    //setCookie("slideBcurrent", slideIndexB, 1);
+                  }
+
+		 function filter(type) {
+                    var experience = Array.prototype.slice.call(document.getElementsByClassName("work"));
+		   experience = experience.concat(Array.prototype.slice.call(document.getElementsByClassName("volunteer")));
+		   experience = experience.concat(Array.prototype.slice.call(document.getElementsByClassName("club")));
+
+		   document.getElementById('work').style.border = "";
+		   document.getElementById('volunteer').style.border = "";
+		   document.getElementById('club').style.border = "";
+		   document.getElementById('all').style.border = "";
+
+		   document.getElementById(type).style.border = "0.2vw solid black";
+
+			console.log("exp length: " + experience.length);
+                      for (var index = 0; index < experience.length; index++) {
+			console.log("exp class: " + experience[index].className);
+			console.log("exp type: " + type);
+			if (experience[index].className != type && type != 'all') {
+                            experience[index].style.display = "none";  
+			} else {
+			  console.log("in else");
+                           experience[index].style.display = "block";
+			}
+                      }
+		 }
+               </script></div>
+</div>
+
+<div class="wrapper" id="applicationWindow">
+<div id="content" style="display: none; height: 100%;">
+<div id="title">
+<div class="columnQuater" style="
+    width: 37%;
+">
+<h2 id="filter" style="font-size: 0.7vw;padding-top: 25%;padding-left: 5%;padding-bottom: 0px;/* width:10%; */">FILTER: <a class="clickable linkText" id="work" onclick="filter('work')" style="padding-top: 2px;">WORK</a> <a class="clickable linkText" id="volunteer" onclick="filter('volunteer')" style="padding-top: 2px;">VOLUNTEER</a> <a class="clickable linkText" id="club" onclick="filter('club')" style="padding-top: 2px;">CLUB</a> <a class="clickable linkText" id="all" onclick="filter('all')" style="border: 0.2vw solid black; padding-top: 2px;">ALL</a></h2>
+</div>
+
+<div class="column3Quater" style="
+    width: 60%;
+">
+<h1 id="pagesTitle" style="font-family: PixelText;/* text-align: center; */font-size: 1.5vw;padding-top: 12%;color: #9B6EF3;text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;margin-bottom: 0%;width: 50%;">experience</h1>
+</div>
+</div>
+</div>
+
+<div class="row" style="overflow-y:auto; max-height: 300px; width: 92.5%; display: block; margin-left: 5%;">
+<div class="work" id="escapeRoom">
+<div id="escapeGraphic" style="width: 10%; float: left; padding: 5px;"><img src="escaperoomLogo.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Escape Room Center</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Game Master &amp; Shift Leader</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">July 2020 - June 2021</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">Aided clients in their escape experience, managed customer calls/bookings, designed room puzzles, and liquidated assets upon the business’s closing.</p>
+</div>
+
+<div class="volunteer" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="hawks.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Hunterdon Hawks Track Club</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Volunteer Assistant Coach</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">Apr 2021 - Jun 2021</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">As an assistant coach for the Hunterdon Hawks middle school track club, I aided coaches in leading and timing workouts, led athletes on runs, and individually instructed them on proper stretching methods and race preparation.</p>
+</div>
+
+<div class="volunteer" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="ethos.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Ethos Farm Project</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Volunteer Event Staff</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">Apr 2019 - Jun 2019</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">As a volunteer I prepared for and helped operate the Ethos Farm Day community potlucks. I guided guests to proper parking areas, organized guest&#39;s potluck food, granted guests tickets to allow them access to the potluck, and collected the tickets upon entry to the potluck area. The farm day event were hosted by the Ethos Farm non-profit organization in Long Valley, NJ.</p>
+</div>
+
+<div class="volunteer" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="union.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Union Township Middle School</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Volunteer Project Mentor</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">Dec 2018 - May 2019</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">I volunteered to mentor a group of 4th graders from Union Township Middle School while they developed a community project for the school. This involved helping them brainstorm achievable goals, organized their ideas, develop a strategy to gain supplies through donations, and finally presented their project to parents and school staff.</p>
+</div>
+
+<div class="club" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="voorhees.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Voorhees Cross Country</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Team Captain and Varsity Runner</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">August 2018 - November 2021</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">As captain and an athlete on the cross country team I have mentored younger athletes, led group runs and workouts, and improved my 5k time by 4 minutes.</p>
+</div>
+
+<div class="club" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="fbla.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">Future Business Leaders of America</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: President (12th grade) &amp; Secretary (11th grade)</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">February 2019 - June 2022</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">As a member of the Voorhees High School chapter of FLBA I placed 1st on the regional Database Design &amp; Application exam, placed 4th on the regional Economics exam, prepared a speech to deliver at the state conference, and oversee fundraising and philanthropic endeavours.</p>
+</div>
+
+<div class="club" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="nths.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">National Technical Honor Society</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Vice President</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">November 2021 - June 2022</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">The National Technical Honor Society is an honor society for outstanding career and technical students of workforce vocational education institutions in the United States</p>
+</div>
+
+<div class="club" id="lbtb">
+<div id="lbtbGraphic" style="width: 10%; float: left; padding: 5px;"><img src="nhs.png" style="width: 100%;" /></div>
+
+<div style="width: 90%; float: left; padding: 5px;">
+<h3 style="margin: 0 0 0 0; font-size: 1.4vw;">National Honor Society</h3>
+
+<h5 style="margin: 0.3em 0 0 0; font-size: 0.9vw;">Position: Secretary</h5>
+
+<h6 style="margin: 0.3em 0 0 0; font-size: 0.7vw;">September 2021 - June 2022</h6>
+</div>
+
+<p style="font-size: 0.9vw; margin-left: 3%; text-indent: 0.5em; line-height: 1.8em;">The National Honor Society is a nationwide organization for high school students in the United States and outlying territories, which consists of many chapters in high schools. Selection is based on four criteria: scholarship, leadership, service, and character.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="slideshow" class="wrapper">
+        <div id="slidesContainer" style="overflow: hidden;">
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide1.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide2.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide3.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide4.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide5.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide6.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide7.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide8.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide9.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide10.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide11.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide12.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: block;">
+            <img src="slide13.jpeg" style="width:100%">
+          </div>
+          <div class="mySlides fade" style="display: none;">
+            <img src="slide14.jpeg" style="width:100%">
+          </div>
+        </div>
+        <script>
+          var slideIndex = 0;
+          showSlides();
+          
+          function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+          
+            slides = Array.prototype.slice.call(slides);
+          
+            slides = shuffle(slides);
+          
+            //console.log(getCookie("slideList"));
+            //console.log(getCookie("slidecurrent"));
+          
+            //if (getCookie("slideList") != "") slides = getCookie("slideList");
+            //if (getCookie("slidecurrent") != "") slideIndex = getCookie("slidecurrent");
+          
+            slides = Array.prototype.slice.call(slides);
+          
+            console.log("slides length: " + slides.length);
+          
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1;}
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, (randomIntFromInterval(4, 15)*1000)); // Change image every 2 seconds
+          
+            //setCookie("slideList", slides, 1);
+            //setCookie("slidecurrent", slideIndex, 1);
+          }
+          
+        </script>
+      </div>
+</div>
+
+<div id="footer">
+<div class="row">
+<div class="column"><a href="index.html"><img class="clickable" src="homeButton.png" style="width: 9%;margin-left: 1%;margin-bottom: 1%;min-height: 40px;min-width: 30px;" /></a></div>
+
+<div class="column"><img src="EMlogo.png" style="width: 9%;min-height: 40px;min-width: 30px;margin-left: 90%;margin-bottom: 1%;" /></div>
+</div>
+</div>
+</body>
+</html>
